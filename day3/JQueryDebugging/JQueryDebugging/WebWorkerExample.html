@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+<script>
+    var w;
+
+    function startWorker() {
+        if (typeof (Worker) !== "undefined") {
+            if (typeof (w) == "undefined") {
+                w = new Worker("worker1.js");
+            }
+            w.onmessage = function (event) {
+                if (console.log) {
+                    console.log("From Worker1:"+event.data);
+                }
+                
+            };
+        } else {
+            alert( "Sorry, your browser does not support Web Workers...");
+        }
+    }
+
+    function stopWorker() {
+        w.terminate();
+        w = undefined;
+    }
+    startWorker();
+</script>
+
+</body>
+</html>

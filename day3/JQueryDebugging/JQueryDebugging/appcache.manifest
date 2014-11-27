@@ -1,0 +1,21 @@
+﻿CACHE MANIFEST
+
+CACHE:
+# Defines resources to be cached.
+script/library.js
+css/stylesheet.css
+images/figure1.png
+
+FALLBACK:
+# Defines resources to be used if non-cached
+# resources cannot be downloaded, for example
+# when the browser is offline..
+photos/ figure2.png
+
+NETWORK:
+# Defines resources that will not be cached.
+figure3.png
+
+
+# NB: Va servito con il mime type text/cache-manifest 
+# DEVE essere utf-8

@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html manifest="appcache.manifest">
+ <head>
+  <title>A Web Page</title>
+  <!--<script src="library.js"></script>-->
+  <link rel="stylesheet" href="stylesheet.css">
+ </head>
+ <body>
+  <p>Results go here: <span id="results">Unknown</span></p>
+
+ <script>
+ /** Per una trattazione estesa vedi
+  http://blogs.msdn.com/b/ie/archive/2011/09/27/building-offline-experiences-with-html5-appcache-and-indexeddb.aspx
+  */
+ var sCacheStatus = "Not supported";
+if (window.applicationCache) 
+{
+   var oAppCache = window.applicationCache;
+   switch ( oAppCache.status ) 
+   {
+      case oAppCache.UNCACHED : 
+         sCacheStatus = "Not cached"; 
+         break;
+      case oAppCache.IDLE : 
+         sCacheStatus = "Idle"; 
+         break;
+      case oAppCache.CHECKING : 
+         sCacheStatus = "Checking"; 
+         break;
+      case oAppCache.DOWNLOADING : 
+         sCacheStatus = "Downloading"; 
+         break;
+      case oAppCache.UPDATEREADY : 
+         sCacheStatus = "Update ready"; 
+         break;
+      case oAppCache.OBSOLETE : 
+         sCacheStatus = "Obsolete"; 
+         break;
+      default : 
+        sCacheStatus = "Unexpected Status ( " + 
+                       oAppCache.status.toString() + ")";
+        break;
+   }
+}
+alert("Cache Status:"+sCacheStatus);
+  </script>
+
+ </body>
+</html>
