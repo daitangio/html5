@@ -1,4 +1,5 @@
 html5
 =====
 
-Html5 Couse for NTT Data
+Html5 Training material  for NTT Data Sharepoint Certification.
+
