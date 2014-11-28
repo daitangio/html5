@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="Author" content="Giovanni 'Daitan' Giorgi" />
+    <title>CSS (7) Newspaper Hard way</title>
+  </head>
+  <body>
+
+    <!-- Stili di supporto per l'editor (out of scope) -->
+    <style>
+      .original_html{
+      float: left;      
+      width:45%;
+      overflow:hidden;
+      cursor:help;
+      height:300px;
+      }
+      .test_case{
+      float: right;
+      width:45%;
+      }
+      .editor {
+      width:98%;
+      position:relative;
+      left:  10px;
+      
+      height:190px;
+      margin:0px;      
+      }
+
+      .editor{
+       border: 8px ridge cyan;
+      }
+
+    </style>
+    
+   
+    <style class="style">
+article {
+ overflow:auto; /* See http://www.w3schools.com/cssref/pr_pos_overflow.asp */
+ height:130px; float:left; width:32.4%;
+}
+
+article:nth-child(3n+1) {
+ border:2px solid green;
+}
+
+article:nth-child(3n+2) {
+ border:2px solid blue;
+}
+article:nth-child(3n+3) {
+border:2px solid red;
+}
+
+/** CANCELLAMI DA QUI IN POI E VEDI COSA SUCCEDE */
+
+article:first-child {
+width:100%;
+height:100%;
+}
+article.mid{
+width:49%;
+}
+
+
+
+
+</style>
+
+    <h1 class="myTitle">CSS Part 7 Newspaper 1+2+3 Hard</h1>   
+
+    
+    <!-- <ul> -->
+    <!--   <li><a href="6-css-newspaperboy.html">Next Newspaper</a> -->
+    <!-- </ul> -->
+    
+
+    <textarea class="editor"></textarea>    
+    <div class="editorStatus">JustLoaded</div>
+    <textarea class="original_html">Original Html here</textarea>
+    <div class="test_case">
+      <div class="testme">
+      <article>Articolo1      
+	Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+	diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+	aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+	nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+	aliquip ex ea commodo consequat. Duis autem vel eum iriure
+	dolor in hendrerit in vulputate velit esse molestie consequat,
+	vel illum dolore eu feugiat nulla facilisis at vero eros et
+	accumsan et iusto odio dignissim qui blandit praesent luptatum
+	zzril delenit augue duis dolore te feugait nulla facilisi. Nam
+	liber tempor cum soluta nobis eleifend option congue nihil
+	imperdiet doming id quod mazim placerat facer possim
+	assum. Typi non habent claritatem insitam; est usus legentis
+	in iis qui facit eorum claritatem. Investigationes
+	demonstraverunt lectores legere me lius quod ii legunt
+	saepius. 
+      </article>
+
+      <article class="mid">Articolo2. Articolo di poche battute il cui contenuto
+        segue poi...In ogni caso verrò piazzato in modo decoroso</article>
+      <article class="mid">Articolo3.Articolo di poche battute il cui contenuto
+        segue poi...</article>
+      <article>Articolo4, che ha poco da dire </article>
+      <article>Articolo5. Bello tozzo. Lorem ipsum dolor sit amet,
+      consectetuer adipiscing elit, sed diam nonummy nibh euismod
+      tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
+      enim ad minim veniam, quis nostrud exerci tation ullamcorper
+      suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
+      autem vel eum iriure dolor in hendrerit in vulputate velit esse
+      molestie consequat, vel illum dolore eu feugiat nulla facilisis
+      at vero eros et accumsan et iusto odio dignissim qui blandit
+      praesent luptatum zzril delenit augue duis dolore te feugait
+      nulla facilisi. Nam liber tempor cum soluta nobis eleifend
+        option </article>
+      <article>Articolo6, piuttosto povero di contenuto</article>
+    </div>
+
+    </div>
+    <script>
+
+      $(".editor").val($(".style").html());
+
+      $(".original_html").text( $(".test_case").html());
+      
+      var myUpdateSign="-";
+      $(".editor").bind("keyup", function(){
+      $(".style").html( $(".editor").val() );
+      $(".editorStatus").html("OK "+myUpdateSign);
+      if(myUpdateSign=="-")  myUpdateSign="|"; else myUpdateSign="-";
+      });
+
+      
+      $(".original_html").bind("keyup", function(){          
+        $(".test_case").html($(".original_html").val());
+         $(".editorStatus").html("Source html Changed");
+      });
+      
+      
+    </script>
+  </body>
+  <!-- Emacs 
+       Local Variables:
+       encoding:utf-8
+       mode:html
+       mode:company
+       mode:cua
+       mode:column-number
+       End:
+    -->  
+</html>
+

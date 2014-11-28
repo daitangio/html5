@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="Author" content="Giovanni 'Daitan' Giorgi" />
+    <title>CSS1/2 Usage examples</title>
+  </head>
+  <body>
+
+    <!-- Stili di supporto per l'editor (out of scope) -->
+    <style>
+      .original_html{
+        float: left;
+        width:45%;
+        overflow:auto;
+      }
+      .test_case{
+	float: right;
+        width:45%;
+      }
+      .editor {
+       width:98%;
+       position:relative;
+       left:  10px;
+       border: 4px inset cyan;
+      
+       height:230px;
+       margin:0px;
+      }
+       
+
+    </style>
+    
+    <div class="editorStatus"></div>
+    <style class="style">
+
+      
+      span {
+      color:red;
+      }
+      
+      .class {      
+      font: normal small-caps lighter 2em;
+      color: coral;      
+      }
+      #id {
+      font:Helvetica;
+      color: violet;
+      }
+      span[data-attributeexample]{
+      font-size:18px;
+      }
+      span[data-attributeexample="es2"]{
+      border: 4px dotted blue;
+      margin: 7px;
+      }
+      li {
+      margin:2%;
+      }
+      /** Esempi di selettori
+      :active
+      :focus  per i textbox
+      :enabled
+      :disabled
+      :checked
+      */
+      li[data-hover]:hover{
+      color:lime;
+      background-color:black;
+      }
+
+      textarea:focus {
+      border: 4px dotted blue;
+      
+      }
+
+      /* Decommentami
+      :root {
+      color:yellow;
+      background-color:black;
+      }*/
+
+      /* Come fare righe bi-color? Decomment me
+      li:nth-child(2n+1) {
+      font-style:italic;
+      background-color:gray; 
+      }
+
+      Altre pseudo-classi strutturali:
+      :nth-last-child(an+b) come nth-child ma conta partendo dall'ultimo elemento
+      :nth-of-type(an+b), come nth-child ma seleziona solo i figli dello stesso tipo indicato
+      
+      :nth-last-of-type(an+b), come :nth-of-type(an+b) ma conta partendo dall'ultimo elemento
+      :first-child, :last-child
+      :first-of-type, consente di selezionare un elemento che è il primo figlio di un altro elemento ma dello stesso tipo
+      */
+    </style>
+
+    <h1 class="myTitle">CSS 1/2 Selettori Parte1</h1>
+
+    
+    <textarea class="editor" ></textarea>
+
+    <pre class="original_html">Original Html here</pre>
+    <div class="test_case">
+      <ol>
+	<li><span>Type</span> Selector
+	<li class="class">.class selectors
+	<li><div id="id">#id selectors in viola</div>
+	<li><span data-attributeexample="es1">[attribute] selectors</span> Example 1
+	<li><span data-attributeexample="es2">[attribute] selectors</span> Example 2
+	<li data-hover="" >:pseudo-class & ::pseudo-element selectors.
+	  (Hover me and see the color change)</li>
+	<li>the universal selector (*) and the root selector (see the commented part)
+	<li>Selector chains, Selector chains, Selector chains ...
+      </ol>
+    </div>
+
+    
+    <script>
+
+      $(".editor").val($(".style").html());
+
+      $(".original_html").text( $(".test_case").html());
+      
+      var myUpdateSign="-";
+      //$(".editor").change(function(){
+      $(".editor").bind("keyup", function(){
+      $(".style").html( $(".editor").val() );
+      $(".editorStatus").html("OK "+myUpdateSign);
+      if(myUpdateSign=="-")  myUpdateSign="|"; else myUpdateSign="-";
+      });
+    </script>
+  </body>
+  <!-- Emacs 
+       Local Variables:
+       encoding:utf-8
+       mode:html
+       mode:company
+       End:
+    -->  
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="Author" content="Giovanni 'Daitan' Giorgi" />
+    <title>CSS1/2 Usage examples</title>
+  </head>
+  <body>
+
+    <!-- Stili di supporto per l'editor (out of scope) -->
+    <style>
+      .original_html{
+        float: left;
+        width:45%;
+      }
+      .test_case{
+	float: right;
+        width:45%;
+      }
+      .editor {
+       width:98%;
+       position:relative;
+       left:  10px;
+      
+       height:230px;
+       margin:0px;      
+      }
+
+      .editor{
+       border: 8px dotte cyan;
+      }
+
+    </style>
+    
+    <div class="editorStatus"></div>
+<style class="style">
+li:not([data-notme=yes]) { color: red; }
+
+/* I selettori :: sfruttano informazioni generati dal browser */
+p::first-line { color: lime; }
+p::first-letter { color: orange; background:black; }
+
+// Pseudo elemento per GENERARE contenuto before o after
+//ol::before { content:'Sto prima'; background: red;  };
+
+/* Altre pseudo-classi strutturali:
+:nth-last-child(an+b) come nth-child ma conta partendo dall'ultimo elemento
+:nth-of-type(an+b), come nth-child ma seleziona solo i figli dello stesso tipo indicato
+
+:nth-last-of-type(an+b), come :nth-of-type(an+b) ma conta partendo dall'ultimo elemento
+:first-child, :last-child
+:first-of-type, consente di selezionare un elemento che è il primo figlio di un altro elemento ma dello stesso tipo
+*/
+</style>
+
+    <h1 class="myTitle">CSS 1/2 Selettori Parte2</h1>
+
+    <a target='csspos' href='http://www.w3schools.com/css/css_positioning.asp'> http://www.w3schools.com/css/css_positioning.asp</a>
+    <textarea class="editor" ></textarea>
+
+    
+    
+    <pre class="original_html">Original Html here</pre>
+    <div class="test_case">
+      <p>Negare una affermazione<br />
+	    non e' facile, figurarsi dimostrarla</p>
+      <ol>
+	<li>Prima riga</li>
+	<li data-notme=yes>Pseudo classe di negazione (not)</span>
+
+      </ol>
+      <h2></h2>
+    </div>
+
+    
+    <script>
+
+      $(".editor").val($(".style").html());
+
+      $(".original_html").text( $(".test_case").html());
+      
+      var myUpdateSign="-";
+      //$(".editor").change(function(){
+      $(".editor").bind("keyup", function(){
+      $(".style").html( $(".editor").val() );
+      $(".editorStatus").html("OK "+myUpdateSign);
+      if(myUpdateSign=="-")  myUpdateSign="|"; else myUpdateSign="-";
+      });
+    </script>
+  </body>
+  <!-- Emacs 
+       Local Variables:
+       encoding:utf-8
+       mode:html
+       mode:company
+       End:
+    -->  
+</html>

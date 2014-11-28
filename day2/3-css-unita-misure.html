@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="Author" content="Giovanni 'Daitan' Giorgi" />
+    <title>CSS1/2 Usage examples</title>
+  </head>
+  <body>
+
+    <!-- Stili di supporto per l'editor (out of scope) -->
+    <style>
+      .original_html{
+      float: left;
+      width:45%;
+      }
+      .test_case{
+      float: right;
+      width:45%;
+      }
+      .editor {
+       width:98%;
+       position:relative;
+       left:  10px;
+      
+       height:90px;
+       margin:0px;      
+      }
+
+      .editor{
+       border: 8px ridge cyan;
+      }
+
+    </style>
+    
+    <div class="editorStatus"></div>
+    <style class="style">
+      .testme li {
+       margin: 1cm;
+      }    
+    </style>
+
+    <h1 class="myTitle">CSS 1/2 Unita misura</h1>
+
+    Recap e uso unita misura:
+    <dl>
+      <dt>Percentuale %</dt><dd></dd>
+      <dt>Assolute:</dt><dd>cm, mm, in (2,54... cm), pt(1/72 inch), pica</dd>
+      <dt>Relative:</dt>
+	<dd>
+	  <ul>
+	  <li>em (valore del font-size ereditato o impostato per il padre)
+	  <li>ex (=altezza della x minuscola del font impostato)
+	  <li>ch (=largh. di un singolo 0)
+	  <li>vw(=largh. della viewport/100)
+	  <li>vh(=altez. della viewport/100)
+	  <li>vm (=minimo tra vw e vh della viewport)
+	  </ul>
+	</dd>
+      <dt>Colore</dt><dd>navy,purple,olive,silver,teal, fuchsia...</dd>
+      <dt>Angolo</dt><dd>90deg,1rad</dd>
+      <dt>Tempo</dt><dd>s,ms</dd>
+      <dt>Frequenza</dt><dd>Hz,kHz</dd>
+    </dl>
+	<textarea class="editor"></textarea>    
+	
+	<pre class="original_html">Original Html here</pre>
+	<div class="test_case">
+	  <ol class="testme">
+	    <li>Prima riga</li>
+	    <li>Seconda riga</li>
+ 	    <li>Terza riga</li>
+	  </ol>
+	  <h2></h2>
+	</div>
+
+	
+	<script>
+
+	  $(".editor").val($(".style").html());
+
+	  $(".original_html").text( $(".test_case").html());
+	  
+	  var myUpdateSign="-";
+	  $(".editor").bind("keyup", function(){
+	  $(".style").html( $(".editor").val() );
+	  $(".editorStatus").html("OK "+myUpdateSign);
+	  if(myUpdateSign=="-")  myUpdateSign="|"; else myUpdateSign="-";
+	  });
+	</script>
+  </body>
+  <!-- Emacs 
+       Local Variables:
+       encoding:utf-8
+       mode:html
+       mode:company
+       mode:cua
+       End:
+    -->  
+</html>

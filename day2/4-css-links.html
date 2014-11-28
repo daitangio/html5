@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="Author" content="Giovanni 'Daitan' Giorgi" />
+    <title>CSS (4) Showdown </title>
+  </head>
+  <body>
+
+    <!-- Stili di supporto per l'editor (out of scope) -->
+    <style>
+      .original_html{
+      float: left;
+      width:45%;
+      overflow:auto;
+      }
+      .test_case{
+      float: right;
+      width:45%;
+      }
+      .editor {
+      width:98%;
+      position:relative;
+      left:  10px;
+      
+      height:150px;
+      margin:0px;      
+      }
+
+
+    </style>
+    
+   
+<style class="style">p {
+text-align:justify;
+//text-transform:capitalize;
+//line-height:25px;
+//font-variant:small-caps;
+  
+//background-image: url("ntt.png"); 
+//background-repeat: repeat-y;
+//background-position: 2% 25%
+  
+}
+.original_html {
+overflow:hidden;
+//cursor:wait;
+}
+/* CSS3 now */  
+.editor {
+ border: 8px solid cyan;
+ border-radius: 23px;
+ box-shadow: 5px 5px 70px; black;
+  }
+/** CSS 3  2D Transform */
+  .testme {
+  //transform: rotate(30deg);
+  transform:skew(16deg,10deg);
+  line-height:25px;
+  }
+ 
+</style>
+
+    <h1 class="myTitle">CSS Part 4 Showdown and links</h1>
+
+    <ul>
+      <li><a href="http://www.w3.org/Style/CSS/current-work">CSS Status</a> / <a href="http://www.w3schools.com/css/default.asp">CSS Tutorials</a>
+      <li><a href="5-css-3d.html">Next (3D)</a>
+    </ul>
+    
+
+    <textarea class="editor"></textarea>    
+    <div class="editorStatus">JustLoaded</div>
+    <pre class="original_html">Original Html here</pre>
+    <div class="test_case">
+      <ol class="testme">
+	<li>Prima riga</li>
+	<li>Seconda riga</li>
+ 	<li>Terza riga</li>
+      </ol>
+      <p> Esempio di riga molto ma molto lunga che l'overflow hidden fara' sparire nel box a sinistra senza colpo ferire </p>
+      <p>Esempio di testo molto ma
+	molto molto molto molto ma molto
+	veramente molto lungo che
+	quindi sarà facile vedere come
+	si allinea a  destra,
+	sinistra, giustifica ecc.
+	<br />
+	E' bello sapere che con il tag
+	'br' posso continuare
+	sulla linea sotto,non è vero?
+	E che questa linea puo'
+	continuare e continuare
+	ad estendersi
+	per moltissimo moltissime
+	linee che poi il css
+	riuscirà a giustificare
+	per bene.
+	Ora ripeto l'sempio
+	di testo molto ma
+	molto molto molto molto ma molto
+	veramente molto lungo che
+	quindi sarà facile vedere come
+	si allinea a  destra,
+	sinistra, giustifica ecc.
+	<br />
+	E' bello sapere che con il tag
+	'br' posso continuare
+	sulla linea sotto,non è vero?
+	E che questa linea puo'
+	continuare e continuare
+	ad estendersi
+	per moltissimo moltissime
+	linee che poi il css
+	riuscirà a giustificare
+	per bene.
+      </p>
+    </div>
+
+    
+    <script>
+
+      $(".editor").val($(".style").html());
+
+      $(".original_html").text( $(".test_case").html());
+      
+      var myUpdateSign="-";
+      $(".editor").bind("keyup", function(){
+      $(".style").html( $(".editor").val() );
+      $(".editorStatus").html("OK "+myUpdateSign);
+      if(myUpdateSign=="-")  myUpdateSign="|"; else myUpdateSign="-";
+      });
+    </script>
+  </body>
+  <!-- Emacs 
+       Local Variables:
+       encoding:utf-8
+       mode:html
+       mode:company
+       mode:cua
+       mode:column-number
+       End:
+    -->  
+</html>
+
