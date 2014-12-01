@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        function draw() {
+            var canvas = document.getElementById("MyCanvas");
+            if (canvas.getContext) {
+                var ctx = canvas.getContext("2d");
+                ctx.font = "italic 24px/2 Unknown Font, sans-serif";
+                ctx.fillStyle = "blue";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "white";
+                ctx.fillText("Hello World", canvas.width / 3, canvas.height * .8);
+                setTimeout(anim2, 1500);
+            }
+        }
+        function anim2() {
+            var canvas = document.getElementById("MyCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.font = "italic 24px/2 Unknown Font, sans-serif";
+            // ctx.bezierCurveTo()
+            ctx.fillStyle = "white";
+            ctx.fillText("JJ's Rocks", canvas.width / 5, canvas.height * .2);
+        }
+        setTimeout(draw, 2000);
+    </script>
+
+
+    <div>
+        <canvas id="MyCanvas" width="300" height="300"> </canvas>
+    </div>
+
+</body>
+</html>

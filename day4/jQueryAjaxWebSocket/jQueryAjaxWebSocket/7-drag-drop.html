@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Drag&Drop</title>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</head>
+<body>
+
+    <div style="border: solid;">
+        <br />Box1<br />
+        <img id="drag1" src="/eva-drag.png" draggable="true"
+             ondragstart="drag(event)">
+    </div>
+    <br /><br />
+    <div id="div1" ondrop="drop(event)"
+         style="border: solid;"
+         ondragover="allowDrop(event)">
+        <br />Box2<br />Drop on me
+        <br />
+    </div>
+
+
+</body>
+</html>

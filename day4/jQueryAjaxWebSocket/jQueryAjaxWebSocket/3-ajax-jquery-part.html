@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    Here Ajax Loading via jquery
+    <div id="myDiv">Qui mettiamo il francobollo</div>
+    <br/><br /><br />
+    <br /><br /><br />
+    <div class="testo">Qui mettiamo il testo</div>
+    Push F12 and reload the page to activate debugger
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+
+
+    <script>
+        var test1 = function () {
+            $("#myDiv").load("/eva_series.html#article img");            
+        }
+        var test2 = function () {            
+            $(".testo").load("/eva_series.html#article p");
+        }
+        var test3 = function () {
+            $("#myDiv").html("");
+            $(".testo").html("");
+            $(".testo").load("/eva_series.html#article p.cit");
+        }
+
+        
+        $(document).ready(function () {
+            
+            var buf = $("#buffer");
+            buf.load("/eva_series.html", function () {
+                $("#origHtml").text(buf.html());
+            });
+        });
+    </script>
+
+    <p>Qui di seguito la pagina originale caricata come "text"</p>
+    <pre id="origHtml">Attendere prego....</pre>
+    <hr />
+    <div id="buffer" style="visibility:hidden;"></div>
+    <!--<br/>
+    Qui di seguito la pagina originale come semplice iframe <br/>
+    <iframe src="./eva_series.html" align="middle" width="98%" height="300"></iframe>-->
+</body>
+</html>

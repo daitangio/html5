@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    Here Ajax Loading via jquery
+    
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+
+
+    <script>
+        
+        $(document).ready(function () {
+            var f = function () { $.ajax({ type: "GET", url: "test.js", dataType: "script" }) };
+            setTimeout(f, 3000);
+
+        });
+    </script>
+    </body>
+</html>
