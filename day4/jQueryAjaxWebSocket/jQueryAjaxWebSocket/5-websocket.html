@@ -5,5 +5,18 @@
 </head>
 <body>
 
+    // See https://code.msdn.microsoft.com/windowsapps/Connecting-with-WebSockets-643b10ab
+    // Non supportati da  .NET 4.0 and IIS 7.5 
+    // http://stackoverflow.com/questions/11171782/html5-web-socket-with-asp-net
+    <script>
+        var ws = new WebSocket("ws://localhost:1974/ws-testme");
+        ws.onmessage = function (args) {
+            var what = args.data;
+            alert("Arrivato:"+what);
+        };
+
+
+    </script>
+
 </body>
 </html>
