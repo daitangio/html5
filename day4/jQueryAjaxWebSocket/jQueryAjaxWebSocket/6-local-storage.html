@@ -4,6 +4,19 @@
     <title></title>
 </head>
 <body>
+    <script>
 
+        var loadFactor = 1024; // 1K
+        console.log("Riempiamo di brutto il local storage...");
+        for (var c = 1; c <= loadFactor; c++) {
+            localStorage["A" + c] = { 'A very long long string': 'for sure' };
+            for (var d = 1; d <= c; d++) {
+                localStorage["A" + c + "/" + d] = { 'Nested structure': 'yeppa' };
+            }
+            //console.log("Ciclo:" + c);
+        }
+        console.log("size:" + localStorage.length);
+        //console.log(JSON.stringify(localStorage));
+    </script>
 </body>
 </html>
