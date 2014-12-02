@@ -13,11 +13,12 @@
             // window.ActiveXObject("Microsoft.XMLHTTP");
             var xmlhttp = new window.XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
+                debugger;
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
                 }
             }
-            //debugger;
+            debugger;
             xmlhttp.open("GET", "eva_series.txt", true);
             xmlhttp.send();
         }

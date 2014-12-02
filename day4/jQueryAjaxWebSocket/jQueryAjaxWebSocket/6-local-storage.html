@@ -6,7 +6,7 @@
 <body>
     <script>
 
-        var loadFactor = 1024; // 1K
+        var loadFactor = 2; // 1K
         console.log("Riempiamo di brutto il local storage...");
         for (var c = 1; c <= loadFactor; c++) {
             localStorage["A" + c] = { 'A very long long string': 'for sure' };
