@@ -1,17 +1,30 @@
 html5
 =====
 
-Html5 Training material  for NTT Data Sharepoint Certification.
+Html5 Training material for NTT Data Sharepoint Certification.
 First revision is November 2014.
 Last review is December 2016
 
 
 ## Introduction
-The Training course has a 5 day timespan.
+The Training course has a 5 day timespan. It is not required a
+Sharepoint knowledge.
+
+The course was aimed to the Sharepoint certification: arguments list
+has been taken to pre-requisite for Sharepoint html5 certification.
+
 The course is in Italian but support material is in english.
+Copyright is Attribution-ShareAlike 4.0 International, which allows
+you modification and adapions for commercial purpose, but the licensor
+cannot revoke these freedoms as long as you follow the license terms.
+
+Giovanni Giorgi must be cited in the attribution.
+
+A Internet connection is required.
+Visual Studio Community edition is recommended but not strictly required
 
 
-    ---
+Course structure is decipted below:
 
     ├── CertificationPath.docx
     ├── day1
@@ -30,6 +43,7 @@ The course is in Italian but support material is in english.
     │   └── JQueryDebugging
     ├── day4
     │   └── jQueryAjaxWebSocket
+    │       .NET Project example of WebSocket use.
     ├── Giorgi2014 .NET_BASE day1 v1.3.pptx
     ├── Giorgi2014 .NET_BASE day2 css and js.pptx
     ├── Giorgi2014 .NET_BASE day3 jquery js.pptx
@@ -37,6 +51,12 @@ The course is in Italian but support material is in english.
     ├── Giorgi2014 .NET_BASE day5  wrap-up.pptx
     ├── LICENSE
     └── README.md
+
+A small jquery-based editor is used to teach css and to experiment
+with it.
+
+
+
 
 ## License
 
